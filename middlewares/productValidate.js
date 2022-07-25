@@ -1,9 +1,7 @@
-const products = require("../data");
-
 const productValidate = (req, res, next) => {
     const product = req.body;
 
-    if(product.name.length < 2) return res.status(400).json('name must be gratter than 2')
+    if(!product.name) return res.status(400).json('name is required')
 
     next();
 }
